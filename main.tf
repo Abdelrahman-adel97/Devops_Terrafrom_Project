@@ -8,3 +8,7 @@ module "network" {
   private_subnet2_cidr = var.private_subnet2_cidr
 
 }
+
+module "lambda_connect" {
+  source = "./lambda"
+}

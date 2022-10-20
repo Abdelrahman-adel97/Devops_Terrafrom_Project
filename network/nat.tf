@@ -1,7 +1,7 @@
 
 resource "aws_eip" "lb" {
   depends_on = [aws_internet_gateway.igw]
-  vpc        = true
+  vpc        = "true"
   tags = {
     Name = "devops-eip"
   }
