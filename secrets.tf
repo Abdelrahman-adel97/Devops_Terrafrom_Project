@@ -1,5 +1,5 @@
 resource "aws_secretsmanager_secret" "devops_secret" {
-  name                    = "devops_secret"
+  name                    = "devops2_secret"
   recovery_window_in_days = 0
 }
 
