@@ -11,6 +11,7 @@ resource "aws_route_table" "dev-public-rt" {
     Name = "devops-pub-rt"
   }
 }
+
 resource "aws_route_table" "dev-private-rt" {
   vpc_id = aws_vpc.terraform_vpc.id
 
