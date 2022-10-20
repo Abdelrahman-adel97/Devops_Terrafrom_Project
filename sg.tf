@@ -8,6 +8,12 @@ resource "aws_security_group" "devops-sg" {
     from_port   = 22
     to_port     = 22
   }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   tags = {
     Name      = "iti_sg_ssh"
@@ -31,6 +37,12 @@ resource "aws_security_group" "devops-sg2" {
     cidr_blocks = [var.vpc_cidr]
     from_port   = 3000
     to_port     = 3000
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
