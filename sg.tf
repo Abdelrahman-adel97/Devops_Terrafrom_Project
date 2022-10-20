@@ -1,6 +1,6 @@
 resource "aws_security_group" "devops-sg" {
   description = "security group for bastion ec2"
-  vpc_id      = aws_vpc.terraform_vpc.id
+  vpc_id      = module.network.vpc_id
 
   ingress {
     protocol    = "tcp"
@@ -18,7 +18,7 @@ resource "aws_security_group" "devops-sg" {
 
 resource "aws_security_group" "devops-sg2" {
   description = "security group for Application ec2"
-  vpc_id      = aws_vpc.terraform_vpc.id
+  vpc_id      = module.network.vpc_id
 
   ingress {
     protocol    = "tcp"

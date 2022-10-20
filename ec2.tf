@@ -3,7 +3,7 @@ resource "aws_instance" "bastion" {
   instance_type               = "t2.micro"
   vpc_security_group_ids      = ["${aws_security_group.devops-sg.id}"]
   key_name                    = aws_key_pair.devops_ssh_key.key_name
-  subnet_id                   = aws_subnet.public-sub-1.id
+  subnet_id                   = module.network.pub-sub1-id
   associate_public_ip_address = "true"
 
   tags = {
@@ -21,7 +21,7 @@ resource "aws_instance" "application_ec2" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = ["${aws_security_group.devops-sg2.id}"]
   key_name               = aws_key_pair.devops_ssh_key.key_name
-  subnet_id              = aws_subnet.private-sub-1.id
+  subnet_id              = module.network.priv-sub1-id
 
   tags = {
     Name = "application_ec2"
